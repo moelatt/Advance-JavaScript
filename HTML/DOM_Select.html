@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta lang="utf-8">
+      <title> DOM selector</title>
+      <style>
+         .sentence{
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+         }
+         body{
+            color: white;
+            background-color: black;
+         }
+         img{
+            width: 100px;
+            height: 100px;
+         }
+         .btn{
+            margin-left: 30px; background-color: pink; font-size: 20px;
+            width: 100px;
+            padding: 10px; border-radius: 5px;
+         }
+         .listColor{
+            color: yellow;
+         }
+         .lineThrough{
+            text-decoration: line-through;
+         }
+      </style>
+   </head>
+   <body>
+      <h1>My first post</h1>
+      <h1 class="bolded">My second post</h1>
+      <ul>
+         <li id="first" class="list">list Item 1</li>
+         <li class="list">list Item 2</li>
+         <li class="list">list Item 3</li>
+      </ul>
+      <p id = "id">Life suck! You have to live with it</p>
+      <p>The closer you look!! The less you see!!!</p> <br>
+      <a href="http://www.google.com" target="_blank">Go To Google</a> 
+      <img src="evening.jpg" alt="sence">
+      <input type="button" value="button" class = "btn">
+   </body>
+   <script>
+      // DOM selector methods
+      var element = document.getElementById("first");
+      var classElement = document.getElementsByClassName("bolded");
+      var tagName = document.getElementsByTagName("p")[1];
+      var byID = document.getElementById("id");
+      var querySelect = document.querySelector(".bolded"); // give back the first class or id or tag name
+      var querySelectID = document.querySelector("#first"); // give back the first class or id or tag name
+      var querySelectAll = document.querySelectorAll("li");
+      byID.classList.add("sentence");
+      byID.classList.remove("sentence");
+      byID.classList.toggle("sentence");
+      // textContent and innerHTML can implement text in html file
+      byID.textContent = "<h1>That is the life!!!</h1>" // text only, cannot input html tag
+      byID.innerHTML = "<h1> Life suck!!! You have to live with it</h1>" // can implement html tag
+      tagName.innerHTML = "<strong> coding is fucking hard </strong>"
+      console.log(tagName);
+      // Manipulate hyperlink attribute
+      var hyperlink = document.querySelector("a");
+
+      console.log(hyperlink.getAttribute("href"))
+      hyperlink.setAttribute("href", "https://www.facebook.com")
+      console.log(hyperlink.getAttribute("href"))
+      // manipulate image attribute
+      var image = document.querySelector("img");
+      console.log(image.getAttribute("src"))
+      image.setAttribute("src", "night.jpg");
+      console.log(image.getAttribute("src"));
+      isEvening = true;
+      // setInterval(() => {
+      //    if(isEvening){
+      //       image.setAttribute("src", "evening.jpg")
+      //    }
+      //    else{
+      //       image.setAttribute("src", "night.jpg");
+      //    }
+      //    // isEvening = !isEvening;
+      // }, 1000);
+// =======================================================//
+      // DOM Events
+         var eventBtn = document.querySelector("input")
+         isBtnColor = true;
+         eventBtn.addEventListener("click", function(){
+            if(isBtnColor){
+               eventBtn.style.backgroundColor = "red"
+               eventBtn.style.color = "white";
+               isBtnColor = false;
+            }
+            else{
+               eventBtn.style.backgroundColor = "yellow";
+               eventBtn.style.color = "black";
+               isBtnColor = true;
+            }
+            // isBtnColor = !isBtnColor;
+         })
+         var list = document.getElementsByClassName("list")
+         console.log(list.length)
+         for(var i = 0; i < list.length; i++){
+            list[i].addEventListener("mouseover", function(){
+               this.classList.add("listColor");
+            })
+            list[i].addEventListener("mouseout", function(){
+               this.classList.remove("listColor");
+            })
+            list[i].addEventListener("click", function(){
+               this.classList.toggle("lineThrough");
+            })
+         }
+   </script>
+</html>

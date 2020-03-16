@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Testing Web</title>
+   <script src="index.js"></script>
+   <style>
+      .btn{
+         color: red;
+         font-size: 2rem;
+         border-radius: 10px;
+      }
+      .btn:hover{
+         color: blue;
+      }
+   </style>
+</head>
+<body>
+   <div>Hello world!!</div>
+   <p class = "man" id = "man">I am the Iron man
+      <p class = "in"> I am inside <em>the another</em> paragraph</p>
+   </p>
+   <a href="#" class = "link" onclick="changeColor()">Hello hyperlink</a>
+   <input type = "button" id = "btn" value = "button" onclick="changeColor()" > Hello btn</input>
+   <script>
+      function changeColor(){
+         var obj = document.getElementById("btn");
+         obj.style.color = "red";
+      }
+   </script>
+   
+    <script src = "node_modules/jquery/dist/jquery.min.js"></script>
+   <script>
+            $("#btn").html("Hello world I am dumb");
+            $(".in").css({"color": "blue", "background" : "orange"});
+            $(".in").wrap("<div>")
+            var number = $(".in").html();
+            for(var i = 0; i < 4; i++){
+               document.write(number)
+            }
+            $("p.man").appendTo("p.in")
+            // $("div").clone().prependTo("p.in")
+            $("div").addClass("hello");
+            $(".hello").css("font-size", "50px");
+            // $("div").removeClass("hello");
+            $(".hello").css("color", "red");
+            $(".hello").offset().left; 
+   </script>
+   <hr>
+   <div id = "note">Toggle function with jquery</div>
+   <button>Toggle</button>
+   <script>
+      $("button").blur(function(){
+         // $("#note").slideToggle("slow");
+         $("#note").css("color", "blue")
+      })
+   </script> <br> <br>
+   <hr> <br> 
+   <form action="">
+      <p id = "p">I am the parent <br>      
+         <input type="button" id = "btnt" value="button1"/>
+         <input type="button" id = "btnt3" value="button3"/>
+      </p>
+   </form>
+   <script>
+      var button2 = $("<input>", {
+         "type" : "button",
+         "value" : "button2",
+         "id" : "btnt2"
+      })
+      </script> -->
+   <script src = "index.js"></script>
+   <script>
+      function main(brand, model){
+         this.brand = brand;
+         this.model = model;
+      } 
+      var first = new main("toyota", "2019")  
+      document.write(first.model , "&nbsp" ,first.brand)
+
+   </script>
+
+   <table border="2px">
+      <th colspan="3">I am header</th>
+      <tr>
+         <td> Hello world </td>
+         <td> Hello world </td>
+         <td> Hello world </td>
+      </tr>
+   </table>
+   <script>
+      $("th").css("color", "red")
+      
+   </script>
+</body>
+<script>
+   var body = document.querySelector("body");
+isPink = false;
+setInterval(function()
+{
+   if(isPink){
+      body.style.backgroundColor = "white";
+   }
+   else{
+      body.style.backgroundColor = "pink";
+   }
+   isPink = !isPink
+}, 1000);
+</script>
+</html>
